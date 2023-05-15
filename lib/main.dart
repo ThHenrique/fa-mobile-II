@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'mvc/first_activity/first_activity.dart';
+import 'screens/first_activity/first_activity.dart';
 
 void main() {
   runApp(const MyApp());

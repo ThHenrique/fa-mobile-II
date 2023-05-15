@@ -15,13 +15,6 @@ class FisrtActivityForms extends StatefulWidget {
 class FormsState extends State<FisrtActivityForms> {
   final _controller = FormsStateController();
 
-  Color textColor = Colors.black; // default color
-  Color textColorWarning = Colors.grey; // default color
-  Color borderColor = Colors.grey;
-
-  final String _result = "";
-  bool envio = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,10 +23,10 @@ class FormsState extends State<FisrtActivityForms> {
         title: const Text('Cadastro'),
       ),
       body: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-          // corpo do aplicativo
-          child: Align(
-              child: Form(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+        // corpo do aplicativo
+        child: Align(
+          child: Form(
             key: _controller.formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -88,28 +81,26 @@ class FormsState extends State<FisrtActivityForms> {
                 ),
                 const SizedBox(height: 16.0),
                 SizedBox(
-                    width: 300,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        ElevatedButton(
-                          onPressed: _controller.isValidForm, // executa _enviar
-                          child: const Text('Enviar'),
-                        ),
-                        ElevatedButton(
-                          onPressed: _controller.cancelar, // executa _cancelar
-                          child: const Text('Cancelar'),
-                        ),
-                      ],
-                    )),
-                const SizedBox(height: 16.0),
-                Text(
-                  'Resposta: $_result',
-                  style: TextStyle(fontSize: 24.0, color: textColor),
+                  width: 300,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () => _controller.isValidForm(context), // executa _enviar
+                        child: const Text('Enviar'),
+                      ),
+                      ElevatedButton(
+                        onPressed: _controller.cancelar, // executa _cancelar
+                        child: const Text('Cancelar'),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
-          ))),
+          ),
+        ),
+      ),
     );
   }
 }
