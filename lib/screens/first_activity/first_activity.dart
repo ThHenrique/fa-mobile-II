@@ -87,7 +87,7 @@ class FormsState extends State<FisrtActivityForms> {
                     children: [
                       ElevatedButton(
                         onPressed: () => _controller.isValidForm(context), // executa _enviar
-                        child: const Text('Enviar'),
+                        child: const Text('Cadastrar'),
                       ),
                       ElevatedButton(
                         onPressed: _controller.cancelar, // executa _cancelar

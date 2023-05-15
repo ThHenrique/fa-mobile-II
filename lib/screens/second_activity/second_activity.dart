@@ -22,11 +22,46 @@ class SecondActivityGetForm extends StatelessWidget {
       ),
       body: Container(
         padding: const EdgeInsets.all(20),
-        child: Column(children: [
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const SizedBox(height: 16.0),
+          const Text(
+            'Seus dados:',
+            style: TextStyle(fontSize: 24.0),
+          ),
           const SizedBox(height: 16.0),
           Text(
-            'Seus dados: \n\nNome: $nome\nEndereco: $endereco\nComplemente: $complemento\nNúmero: $numero\nUF: $uf\nCEP: $cep',
+            'Nome: $nome',
             style: const TextStyle(fontSize: 24.0),
+          ),
+          const SizedBox(height: 16.0),
+          Text(
+            'Endereco: $endereco',
+            style: const TextStyle(fontSize: 24.0),
+          ),
+          const SizedBox(height: 16.0),
+          Text(
+            'Complemente: $complemento',
+            style: const TextStyle(fontSize: 24.0),
+          ),
+          const SizedBox(height: 16.0),
+          Text(
+            'Número: $numero',
+            style: const TextStyle(fontSize: 24.0),
+          ),
+          const SizedBox(height: 16.0),
+          Text(
+            'UF: $uf',
+            style: const TextStyle(fontSize: 24.0),
+          ),
+          const SizedBox(height: 16.0),
+          Text(
+            'CEP: $cep',
+            style: const TextStyle(fontSize: 24.0),
+          ),
+          const SizedBox(height: 16.0),
+          const Text(
+            'Os dados a acima serão armazenados e podem ser compartilhados internamente conforme a política da empresa',
+            style: TextStyle(fontSize: 24.0),
           ),
         ]),
       ),
