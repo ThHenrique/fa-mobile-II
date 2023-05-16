@@ -32,49 +32,42 @@ class FormsState extends State<FisrtActivityForms> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Input(
-                  label: 'Nome',
+                  label: 'Nome *',
                   icon: const Icon(Icons.account_circle_outlined),
                   validator: _controller.validator.validateText,
                   onSaved: (String value) => _controller.nome = value,
                 ),
                 const SizedBox(height: 12.0),
                 Input(
-                  label: 'Endereço',
+                  label: 'Endereço *',
                   icon: const Icon(Icons.house_outlined),
                   validator: _controller.validator.validateText,
                   onSaved: (String value) => _controller.endereco = value,
                 ),
                 const SizedBox(height: 12.0),
                 Input(
-                  label: 'Número',
+                  label: 'Número *',
                   icon: const Icon(Icons.numbers_outlined),
                   validator: _controller.validator.validateText,
                   onSaved: (String value) => _controller.numero = value,
                 ),
                 const SizedBox(height: 12.0),
                 Input(
-                  label: 'Complemento',
+                  label: 'Complemento *',
                   icon: const Icon(Icons.control_point_outlined),
                   validator: _controller.validator.validateText,
                   onSaved: (String value) => _controller.complemento = value,
                 ),
                 const SizedBox(height: 12.0),
                 Input(
-                  label: 'Complemento',
-                  icon: const Icon(Icons.numbers_outlined),
-                  validator: _controller.validator.validateText,
-                  onSaved: (String value) => _controller.complemento = value,
-                ),
-                const SizedBox(height: 12.0),
-                Input(
-                  label: 'UF',
+                  label: 'UF *',
                   icon: const Icon(Icons.emoji_flags_outlined),
                   validator: _controller.validator.validateText,
                   onSaved: (String value) => _controller.uf = value,
                 ),
                 const SizedBox(height: 12.0),
                 Input(
-                  label: 'CEP',
+                  label: 'CEP *',
                   icon: const Icon(Icons.other_houses_outlined),
                   validator: _controller.validator.validateText,
                   onSaved: (String value) => _controller.cep = value,
@@ -82,18 +75,9 @@ class FormsState extends State<FisrtActivityForms> {
                 const SizedBox(height: 16.0),
                 SizedBox(
                   width: 300,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () => _controller.isValidForm(context), // executa _enviar
-                        child: const Text('Cadastrar'),
-                      ),
-                      ElevatedButton(
-                        onPressed: _controller.cancelar, // executa _cancelar
-                        child: const Text('Cancelar'),
-                      ),
-                    ],
+                  child: ElevatedButton(
+                    onPressed: () => _controller.isValidForm(context), // executa _enviar
+                    child: const Text('Cadastrar'),
                   ),
                 ),
               ],

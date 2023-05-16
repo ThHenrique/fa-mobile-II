@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_widget/shared/widgets/checkbox.dart';
 
 class SecondActivityGetForm extends StatelessWidget {
   final String nome, endereco, complemento, numero, uf, cep;
@@ -60,8 +61,18 @@ class SecondActivityGetForm extends StatelessWidget {
           ),
           const SizedBox(height: 16.0),
           const Text(
-            'Os dados a acima serão armazenados e podem ser compartilhados internamente conforme a política da empresa',
+            'Os dados acima serão armazenados e podem ser compartilhados internamente conforme a política da empresa',
             style: TextStyle(fontSize: 24.0),
+          ),
+          LabelCheckbox(
+            label: "Aceito compartilhar",
+            padding: const EdgeInsets.all(20),
+            value: true,
+            onChanged: (bool newValue) {
+              // setState(() {
+              //   _isSelected = newValue;
+              // });
+            },
           ),
         ]),
       ),

@@ -32,7 +32,7 @@ class _InputState extends State<Input> {
         border: const OutlineInputBorder(),
         label: Text(widget.label),
         focusedBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.blue),
+          borderSide: BorderSide(color: Colors.black87, width: 1.5),
         ),
         prefixIcon: widget.icon,
       ),
