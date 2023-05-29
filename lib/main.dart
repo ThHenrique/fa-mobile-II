@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'mvc/first_activity/first_activity.dart';
+import 'package:form_widget/screens/welcome/welcome_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const FisrtActivityForms(),
+      home: const WelcomeScreen(),
     );
   }
 }

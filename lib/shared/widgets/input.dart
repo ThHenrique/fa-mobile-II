@@ -29,10 +29,13 @@ class _InputState extends State<Input> {
       validator: (String? value) => widget.validator(value ?? '', widget.label),
       decoration: InputDecoration(
         hintText: 'Digite o ${widget.label}',
-        border: const OutlineInputBorder(),
-        label: Text(widget.label),
+        border: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.black12),
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+        ),
         focusedBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.teal),
+          borderSide: BorderSide(color: Colors.black54, width: 1.2),
+          borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         prefixIcon: widget.icon,
       ),
