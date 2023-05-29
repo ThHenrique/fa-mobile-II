@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:form_widget/screens/auth/register/address_screen.dart';
+import 'package:form_widget/shared/utils/validade_input.dart';
 import 'package:form_widget/shared/widgets/input.dart';
-import 'package:form_widget/screens/auth/register/register_controller.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -10,7 +11,31 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class FormsState extends State<RegisterScreen> {
-  final _controller = RegisterController();
+  final formKey = GlobalKey<FormState>();
+
+  final validator = InputValidator();
+
+  var username = '', email = '', password = '', confirmPassword = '';
+
+  bool isValidForm() {
+    if (!formKey.currentState!.validate()) return false;
+    formKey.currentState?.save();
+    return true;
+  }
+
+  void goToNextScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (BuildContext context) {
+        return AddressScreen(
+          email: email,
+          username: username,
+        );
+      }),
+    );
+  }
+
+  void _nextSreen() => isValidForm() ? goToNextScreen() : null;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +44,7 @@ class FormsState extends State<RegisterScreen> {
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         child: Form(
-          key: _controller.formKey,
+          key: formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -49,8 +74,8 @@ class FormsState extends State<RegisterScreen> {
               Input(
                 label: 'Nome',
                 icon: const Icon(Icons.account_circle_outlined),
-                validator: _controller.validator.validateText,
-                onSaved: (String value) => _controller.nome = value,
+                validator: validator.validateText,
+                onSaved: (String value) => username = value,
               ),
               const SizedBox(height: 16.0),
               const Text(
@@ -64,8 +89,8 @@ class FormsState extends State<RegisterScreen> {
               Input(
                 label: 'E-mail',
                 icon: const Icon(Icons.email_outlined),
-                validator: _controller.validator.validateText,
-                onSaved: (String value) => _controller.endereco = value,
+                validator: validator.validateText,
+                onSaved: (String value) => email = value,
               ),
               const SizedBox(height: 16.0),
               const Text(
@@ -79,8 +104,8 @@ class FormsState extends State<RegisterScreen> {
               Input(
                 label: 'Senha',
                 icon: const Icon(Icons.vpn_key),
-                validator: _controller.validator.validateText,
-                onSaved: (String value) => _controller.numero = value,
+                validator: validator.validateText,
+                onSaved: (String value) => password = value,
               ),
               const SizedBox(height: 16.0),
               const Text(
@@ -94,15 +119,15 @@ class FormsState extends State<RegisterScreen> {
               Input(
                 label: 'Confirmar senha',
                 icon: const Icon(Icons.vpn_key),
-                validator: _controller.validator.validateText,
-                onSaved: (String value) => _controller.numero = value,
+                validator: validator.validateText,
+                onSaved: (String value) => confirmPassword = value,
               ),
               const SizedBox(height: 48.0),
               Center(
                 child: SizedBox(
                   width: 300,
                   child: ElevatedButton(
-                    onPressed: () => _controller.isValidForm,
+                    onPressed: () => {_nextSreen()},
                     style: ElevatedButton.styleFrom(backgroundColor: Colors.blueAccent),
                     child: const Text(
                       'PRÓXIMO',

@@ -1,16 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:form_widget/screens/auth/terms/terms_screen.dart';
+import 'package:form_widget/shared/utils/validade_input.dart';
 import 'package:form_widget/shared/widgets/input.dart';
-import 'package:form_widget/screens/auth/register/register_controller.dart';
 
 class AddressScreen extends StatefulWidget {
-  const AddressScreen({super.key});
+  final String username, email;
+
+  const AddressScreen({Key? key, required this.username, required this.email}) : super(key: key);
 
   @override
   AddressState createState() => AddressState();
 }
 
 class AddressState extends State<AddressScreen> {
-  final _controller = RegisterController();
+  final _formKey = GlobalKey<FormState>();
+
+  final validator = InputValidator();
+
+  var street = '', houseNumber = '', complement = '', uf = '', zipCode = '';
+
+  bool isValidForm() {
+    if (!_formKey.currentState!.validate()) return false;
+    _formKey.currentState?.save();
+    return true;
+  }
+
+  void goToNextScreen() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (BuildContext context) {
+        return TermsSreen(
+          username: widget.username,
+          email: widget.email,
+          street: street,
+          houseNumber: houseNumber,
+          complement: complement,
+          uf: uf,
+          zipCode: zipCode,
+        );
+      }),
+    );
+  }
+
+  void _nextSreen() => isValidForm() ? goToNextScreen() : null;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +51,7 @@ class AddressState extends State<AddressScreen> {
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         child: Form(
-          key: _controller.formKey,
+          key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -49,8 +81,8 @@ class AddressState extends State<AddressScreen> {
               Input(
                 label: 'Rua',
                 icon: const Icon(Icons.house_outlined),
-                validator: _controller.validator.validateText,
-                onSaved: (String value) => _controller.endereco = value,
+                validator: validator.validateText,
+                onSaved: (String value) => street = value,
               ),
               const SizedBox(height: 16.0),
               const Text(
@@ -64,8 +96,8 @@ class AddressState extends State<AddressScreen> {
               Input(
                 label: 'Número',
                 icon: const Icon(Icons.numbers_outlined),
-                validator: _controller.validator.validateText,
-                onSaved: (String value) => _controller.numero = value,
+                validator: validator.validateText,
+                onSaved: (String value) => houseNumber = value,
               ),
               const SizedBox(height: 16.0),
               const Text(
@@ -79,8 +111,8 @@ class AddressState extends State<AddressScreen> {
               Input(
                 label: 'Complemento',
                 icon: const Icon(Icons.numbers_outlined),
-                validator: _controller.validator.validateText,
-                onSaved: (String value) => _controller.complemento = value,
+                validator: validator.validateText,
+                onSaved: (String value) => complement = value,
               ),
               const SizedBox(height: 16.0),
               const Text(
@@ -94,8 +126,8 @@ class AddressState extends State<AddressScreen> {
               Input(
                 label: 'UF',
                 icon: const Icon(Icons.emoji_flags_outlined),
-                validator: _controller.validator.validateText,
-                onSaved: (String value) => _controller.uf = value,
+                validator: validator.validateText,
+                onSaved: (String value) => uf = value,
               ),
               const SizedBox(height: 16.0),
               const Text(
@@ -109,15 +141,15 @@ class AddressState extends State<AddressScreen> {
               Input(
                 label: 'CEP',
                 icon: const Icon(Icons.other_houses_outlined),
-                validator: _controller.validator.validateText,
-                onSaved: (String value) => _controller.cep = value,
+                validator: validator.validateText,
+                onSaved: (String value) => zipCode = value,
               ),
               const SizedBox(height: 48.0),
               Center(
                 child: SizedBox(
                   width: 300,
                   child: ElevatedButton(
-                    onPressed: () => _controller.isValidForm,
+                    onPressed: () => _nextSreen(),
                     style: ElevatedButton.styleFrom(backgroundColor: Colors.blueAccent),
                     child: const Text(
                       'PRÓXIMO',
