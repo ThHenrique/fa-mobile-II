@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_widget/screens/evaluation/evaluation_screen.dart';
 import 'package:form_widget/shared/models/product_model.dart';
 import 'package:form_widget/shared/widgets/product_card_widget.dart';
 
@@ -10,12 +11,16 @@ class HomeScreen extends StatefulWidget {
   HomeState createState() => HomeState();
 }
 
-// classe que contém os widgets
 class HomeState extends State<HomeScreen> {
   final List<Product> products = Product.getProducts();
 
-  void goReting() {
-    return;
+  void goEvaluation() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (BuildContext context) {
+        return const EvaluationScreen();
+      }),
+    );
   }
 
   @override
@@ -39,7 +44,7 @@ class HomeState extends State<HomeScreen> {
                   ),
                 ),
                 TextButton(
-                  onPressed: goReting,
+                  onPressed: goEvaluation,
                   child: const Text(
                     'Avaliar',
                     style: TextStyle(
