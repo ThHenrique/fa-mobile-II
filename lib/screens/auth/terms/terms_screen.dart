@@ -38,48 +38,79 @@ class TermsState extends State<TermsSreen> {
     return Scaffold(
       appBar: AppBar(),
       body: Container(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const SizedBox(height: 16.0),
           const Text(
-            'Seus dados:',
-            style: TextStyle(fontSize: 24.0),
+            'Seus Dados compartilhados',
+            style: TextStyle(
+              fontSize: 22,
+              color: Colors.blue,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const Divider(
+            height: 32,
+            thickness: 1,
+            endIndent: 0,
+            color: Colors.black12,
+          ),
+          const SizedBox(height: 24.0),
+          Text(
+            'Nome completo: ${widget.username}',
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.grey,
+            ),
           ),
           const SizedBox(height: 16.0),
           Text(
-            'Nome: ${widget.username}',
-            style: const TextStyle(fontSize: 24.0),
-          ),
-          const SizedBox(height: 16.0),
-          Text(
-            'Email: ${widget.email}',
-            style: const TextStyle(fontSize: 24.0),
+            'E-mail: ${widget.email}',
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.grey,
+            ),
           ),
           const SizedBox(height: 16.0),
           Text(
             'Endereco: ${widget.street}',
-            style: const TextStyle(fontSize: 24.0),
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.grey,
+            ),
           ),
           const SizedBox(height: 16.0),
           Text(
             'Complemento: ${widget.complement}',
-            style: const TextStyle(fontSize: 24.0),
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.grey,
+            ),
           ),
           const SizedBox(height: 16.0),
           Text(
             'Número: ${widget.houseNumber}',
-            style: const TextStyle(fontSize: 24.0),
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.grey,
+            ),
           ),
           const SizedBox(height: 16.0),
           Text(
             'UF: ${widget.uf}',
-            style: const TextStyle(fontSize: 24.0),
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.grey,
+            ),
           ),
           const SizedBox(height: 16.0),
           Text(
             'CEP: ${widget.zipCode}',
-            style: const TextStyle(fontSize: 24.0),
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.grey,
+            ),
           ),
+          const SizedBox(height: 50.0),
           Padding(
             padding: const EdgeInsets.all(20),
             child: Row(
@@ -93,7 +124,13 @@ class TermsState extends State<TermsSreen> {
                   },
                 ),
                 const Expanded(
-                  child: Text('Os dados acima serão armazenados e podem ser compartilhados internamente conforme a política da empresa'),
+                  child: Text(
+                    'Os dados acima serão armazenados e podem ser compartilhados internamente conforme a política da empresa',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.black54,
+                    ),
+                  ),
                 ),
               ],
             ),
