@@ -11,4 +11,9 @@ Consiste na criação de uma aplicação que segue o seguinte fluxo:
 
 Cadastro comum :
 
+https://github.com/ThHenrique/fa-mobile-II/assets/58437896/9ac59660-ee56-4e3a-a432-011c8b2be8a7
+
 Carrinho de compras :
+
+https://github.com/ThHenrique/fa-mobile-II/assets/58437896/b2e8f1eb-4439-4ac8-a4a2-2960281c8b3d
+
