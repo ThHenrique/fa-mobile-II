@@ -23,6 +23,17 @@ class WelcomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Center(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  'assets/images/logo.png',
+                  width: 150,
+                  height: 150,
+                ),
+              ),
+            ),
+            const SizedBox(height: 32),
             const Text(
               "Bem Vindo à",
               style: TextStyle(color: Colors.blueGrey, fontSize: 22, fontWeight: FontWeight.w400),

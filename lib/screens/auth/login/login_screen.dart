@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_widget/screens/home/home_screen.dart';
 import 'package:form_widget/shared/utils/validade_input.dart';
 import 'package:form_widget/shared/widgets/input.dart';
 
@@ -28,19 +29,19 @@ class LoginState extends State<LoginScreen> {
     }
     formKey.currentState!.save();
 
-    if (username != "teste" || password != "123") {
+    if (username != "teste@email.com" || password != "123") {
       setState(() {
         formMessage = "Acesso não permitido";
       });
       return;
     }
 
-    // Navigator.pushReplacement(
-    //   context,
-    //   MaterialPageRoute(builder: (BuildContext context) {
-    //     return const FormSreen();
-    //   }),
-    // );
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (BuildContext context) {
+        return const HomeScreen();
+      }),
+    );
   }
 
   @override
